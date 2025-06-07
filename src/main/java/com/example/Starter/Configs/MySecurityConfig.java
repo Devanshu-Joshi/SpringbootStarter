@@ -19,7 +19,7 @@ public class MySecurityConfig {
                         .requestMatchers("/hello").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(Customizer.withDefaults());
+                .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }

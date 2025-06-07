@@ -10,7 +10,7 @@ import java.util.List;
 public class TestController {
 
     @Autowired
-    StudentService StudentService;
+    StudentService studentService;
 
     @GetMapping("/hello")
     public String hello()
@@ -20,6 +20,7 @@ public class TestController {
 
     @GetMapping("/getAllStudents")
     public List<String> getAll(){
-        // ??
+        List<String> allStudents = studentService.getAllStudents();
+        return allStudents;
     }
 }

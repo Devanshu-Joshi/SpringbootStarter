@@ -1,16 +1,22 @@
 package com.example.Starter.Models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
 public class Student {
 
+    @Id
+    @Column(name = "student_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "student_name")
     private String name;
 
+    @Column(name = "student_role")
     private String role;
 
+    @Column(name = "student_city")
     private String city;
 
     public Student() {

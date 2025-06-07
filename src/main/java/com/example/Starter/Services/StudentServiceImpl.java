@@ -2,28 +2,49 @@ package com.example.Starter.Services;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.example.Starter.Models.Student;
+import com.example.Starter.Repositories.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-    List<String> students = new ArrayList<>();
+    @Autowired
+    StudentRepository studentRepository;
 
-    String student1 = "Narendra Modi";
-    String student2 = "Mukesh Ambani";
-    String student3 = "Elon Musk";
-
-    public StudentServiceImpl() {
-        students.add(student1);
-        students.add(student2);
-        students.add(student3);
+    @Override
+    public List<Student> getAllStudents() {
+        return (List<Student>) studentRepository.findAll();
     }
 
-    public List<String> getAllStudents() {
-        return students;
+    @Override
+    public Student getStudentByID(int id) {
+        return studentRepository.findById(id);
     }
 
-    public void setStudent(String student) {
-        students.add(student);
+    @Override
+    public Student setStudent(Student Student) {
+        if (Student == null)
+            return null;
+
+        Student = studentRepository.save(Student);
+        return Student;
+    }
+
+    @Override
+    public Student updateStudent(Student Student) {
+        if (Student == null)
+            return null;
+
+        Student = studentRepository.save(Student);
+        return Student;
+    }
+
+    public Student deleteStudent(int id) {
+        if (id <= 0)
+            return null;
+        Student Student = studentRepository.findById(id);
+        studentRepository.deleteById(id);
+        return Student;
     }
 }

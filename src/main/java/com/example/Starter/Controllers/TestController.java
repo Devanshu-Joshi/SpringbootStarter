@@ -20,7 +20,6 @@ public class TestController {
 
     @GetMapping("/getAllStudents")
     public List<String> getAll(){
-        List<String> allStudents = studentService.getAllStudents();
-        return allStudents;
+        return studentService.getAllStudents();
     }
 }

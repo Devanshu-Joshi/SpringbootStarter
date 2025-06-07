@@ -56,4 +56,9 @@ public class Student {
         this.city = city;
     }
 
+    @Override
+    public String toString() {
+        return "Student [id=" + id + ", name=" + name + ", role=" + role + ", city=" + city + "]";
+    }
+
 }

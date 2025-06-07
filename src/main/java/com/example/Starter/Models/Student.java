@@ -12,4 +12,16 @@ public class Student {
     private String role;
 
     private String city;
+
+    public Student() {
+        super();
+    }
+
+    public Student(int id, String name, String role, String city) {
+        this.id = id;
+        this.name = name;
+        this.role = role;
+        this.city = city;
+    }
+
 }
